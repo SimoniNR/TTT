@@ -20,12 +20,13 @@ public class LoginUI : MonoBehaviour
 
    private void Connect()
    {
-      Debug.Log("Connecting to the Server!");
-     // NetworkClient.Instance.Connect();
+      //Debug.Log("Connecting to the Server!");
+      NetworkClient.Instance.Connect();
    }
 
    private void Send()
    {
-      Debug.Log("Sending message to the server!");
+      //Debug.Log("Sending message to the server!");
+      NetworkClient.Instance.SendServer("Hello there!");
    }
 }
