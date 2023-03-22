@@ -1,8 +1,0 @@
-C:\Users\nrsim\OneDrive\DOC_FACUL\UnityProjects\TTT\TTT.Server\TTT.Server\bin\Debug\TTT.Server.exe.config
-C:\Users\nrsim\OneDrive\DOC_FACUL\UnityProjects\TTT\TTT.Server\TTT.Server\bin\Debug\TTT.Server.exe
-C:\Users\nrsim\OneDrive\DOC_FACUL\UnityProjects\TTT\TTT.Server\TTT.Server\bin\Debug\TTT.Server.pdb
-C:\Users\nrsim\OneDrive\DOC_FACUL\UnityProjects\TTT\TTT.Server\TTT.Server\obj\Debug\TTT.Server.csproj.AssemblyReference.cache
-C:\Users\nrsim\OneDrive\DOC_FACUL\UnityProjects\TTT\TTT.Server\TTT.Server\obj\Debug\TTT.Server.csproj.SuggestedBindingRedirects.cache
-C:\Users\nrsim\OneDrive\DOC_FACUL\UnityProjects\TTT\TTT.Server\TTT.Server\obj\Debug\TTT.Server.csproj.CoreCompileInputs.cache
-C:\Users\nrsim\OneDrive\DOC_FACUL\UnityProjects\TTT\TTT.Server\TTT.Server\obj\Debug\TTT.Server.exe
-C:\Users\nrsim\OneDrive\DOC_FACUL\UnityProjects\TTT\TTT.Server\TTT.Server\obj\Debug\TTT.Server.pdb

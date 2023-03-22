@@ -1,0 +1,17 @@
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\bin\Debug\net6.0\TTT.Server.exe
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\bin\Debug\net6.0\TTT.Server.deps.json
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\bin\Debug\net6.0\TTT.Server.runtimeconfig.json
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\bin\Debug\net6.0\TTT.Server.dll
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\bin\Debug\net6.0\TTT.Server.pdb
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\bin\Debug\net6.0\LiteNetLib.dll
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\TTT.Server.csproj.AssemblyReference.cache
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\TTT.Server.GeneratedMSBuildEditorConfig.editorconfig
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\TTT.Server.AssemblyInfoInputs.cache
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\TTT.Server.AssemblyInfo.cs
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\TTT.Server.csproj.CoreCompileInputs.cache
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\TTT.Server.csproj.CopyComplete
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\TTT.Server.dll
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\refint\TTT.Server.dll
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\TTT.Server.pdb
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\TTT.Server.genruntimeconfig.cache
+D:\Unity_Projects\TTT\TTT\TTT.Server\TTT.Server\obj\Debug\net6.0\ref\TTT.Server.dll
