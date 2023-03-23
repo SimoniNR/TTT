@@ -9,14 +9,17 @@ using UnityEngine.UI;
 public class LoginUI : MonoBehaviour
 {
     [SerializeField]
-    int _maxUsernameInput = 10;
+    int _maxUsernameLength = 10;
     [SerializeField]   
-    int _maxPasswordInput = 10;
+    int _maxPasswordLength = 10;
     
     private Transform _loginButton;
     private TextMeshProUGUI _loginText;
     private TMP_InputField _usernameInput;
+    private Transform _usernameError;
     private TMP_InputField _passwordInput;
+    private Transform _passwordError; 
+    
 
     private string _username = string.Empty;
     private string _password = string.Empty;
@@ -30,9 +33,11 @@ public class LoginUI : MonoBehaviour
 
         _usernameInput = transform.Find("UsernameInput").GetComponent<TMP_InputField>();
         _usernameInput.onValueChanged.AddListener(UpdateUsername);
+        _usernameError = _usernameInput.transform.Find("Error");
 
         _passwordInput = transform.Find("PasswordInput").GetComponent<TMP_InputField>();
         _passwordInput.onValueChanged.AddListener(UpdatePassword);
+        _passwordError = _passwordInput.transform.Find("Error");
     }
 
     private void UpdatePassword(string value)
@@ -46,6 +51,7 @@ public class LoginUI : MonoBehaviour
     {
        _username = value;
         //Debug.Log($"Username value = {value}");
+        ValidateAndUpdateUI();
     }
 
     private void ValidateAndUpdateUI()
@@ -55,10 +61,22 @@ public class LoginUI : MonoBehaviour
         var interactable = 
             (!string.IsNullOrWhiteSpace(_username) && 
             !string.IsNullOrWhiteSpace(_password)) &&
-            (_username.Length <= _maxUsernameInput && _password.Length <= _maxPasswordInput) && 
+            (_username.Length <= _maxUsernameLength && _password.Length <= _maxPasswordLength) && 
             usernameRegex.Success;
 
         EnableLoginButton(interactable);
+        
+        if (_password != null) 
+        {
+            var passwordTooLong = _password.Length > _maxPasswordLength;
+            _passwordError.gameObject.SetActive(passwordTooLong);
+        }
+
+        if (_username != null) 
+        {
+            var usernameTooLong = _username.Length > _maxUsernameLength || !usernameRegex.Success;
+            _usernameError.gameObject.SetActive(usernameTooLong);
+        }
         
     }
     private void EnableLoginButton(bool interactable)
