@@ -56,17 +56,17 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\LoginUI.cs" />
-    <Compile Include="Assets\Scripts\NetworkClient.cs" />
-    <Compile Include="Assets\Lib\LeanTween\Framework\LeanTest.cs" />
-    <Compile Include="Assets\Lib\LeanTween\Framework\LeanSmooth.cs" />
-    <Compile Include="Assets\Lib\LeanTween\Framework\LeanAudio.cs" />
-    <Compile Include="Assets\Lib\LeanTween\Framework\LTDescrOptional.cs" />
     <Compile Include="Assets\Lib\LeanTween\Framework\LeanTween.cs" />
     <Compile Include="Assets\Lib\LeanTween\Framework\LTDescr.cs" />
-    <Compile Include="Assets\Lib\LeanTween\Framework\LTSeq.cs" />
     <Compile Include="Assets\Lib\LeanTween\Framework\LeanTweenExt.cs" />
+    <Compile Include="Assets\Lib\LeanTween\Framework\LTSeq.cs" />
+    <Compile Include="Assets\Lib\LeanTween\Framework\LTDescrOptional.cs" />
     <Compile Include="Assets\Scripts\UI\Tweener.cs" />
+    <Compile Include="Assets\Lib\LeanTween\Framework\LeanAudio.cs" />
+    <Compile Include="Assets\Lib\LeanTween\Framework\LeanSmooth.cs" />
+    <Compile Include="Assets\Lib\LeanTween\Framework\LeanTest.cs" />
+    <Compile Include="Assets\Scripts\LoginUI.cs" />
+    <Compile Include="Assets\Scripts\NetworkClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
