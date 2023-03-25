@@ -1,7 +1,6 @@
 using LiteNetLib;
 using LiteNetLib.Utils;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
@@ -13,6 +12,8 @@ public class NetworkClient : MonoBehaviour, INetEventListener
     private NetManager _netManager;
     private NetPeer _server;
     private NetDataWriter _writer;
+
+    public event Action OnServerConnected;
     
     private static NetworkClient _instance;
 
@@ -58,10 +59,15 @@ public class NetworkClient : MonoBehaviour, INetEventListener
         _netManager.Connect("localhost", 9050, "");
     }
 
-    public void SendServer(string data)
+    public void SendServer<T>(T packet, DeliveryMethod deliveryMethod = DeliveryMethod.ReliableOrdered) where T : INetSerializable
     {
-        var bytes = Encoding.UTF8.GetBytes(data);
-        _server.Send(bytes, DeliveryMethod.ReliableOrdered);
+       if(_server == null)
+          return;
+        
+        _writer.Reset();
+        packet.Serialize(_writer);
+        _server.Send(_writer, deliveryMethod);
+
     }
 
     public void OnConnectionRequest(ConnectionRequest request)
@@ -90,6 +96,7 @@ public class NetworkClient : MonoBehaviour, INetEventListener
     {
         Debug.Log("We connected to server at " + peer.EndPoint);
         _server = peer;
+        OnServerConnected?.Invoke();
     }
 
     public void OnPeerDisconnected(NetPeer peer, DisconnectInfo disconnectInfo)

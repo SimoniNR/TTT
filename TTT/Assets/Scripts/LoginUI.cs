@@ -1,3 +1,4 @@
+using NetworkShared.Packets.ClientServer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -42,6 +43,18 @@ public class LoginUI : MonoBehaviour
         _passwordError = _passwordInput.transform.Find("Error");
 
         _loadingUI = transform.Find("Loading");
+
+        NetworkClient.Instance.OnServerConnected += SetIsConnected;
+    }
+
+    private void OnDestroy()
+    {
+        NetworkClient.Instance.OnServerConnected -= SetIsConnected;
+    }
+
+    private void SetIsConnected()
+    {
+        _isConnected = true;
     }
 
     private void UpdatePassword(string value)
@@ -115,8 +128,14 @@ public class LoginUI : MonoBehaviour
         }
 
         Debug.Log("Connected to the server!");
-        //var authRequest = "authRequestObject";
-        //NetworkClient.Instance.SendServer(authRequest);
+
+        var authRequest = new Net_AuthRequest
+        {
+            Username = _username,
+            Password = _password,
+        };
+
+        NetworkClient.Instance.SendServer(authRequest);
 
     }
 
