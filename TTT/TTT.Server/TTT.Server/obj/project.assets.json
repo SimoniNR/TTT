@@ -865,11 +865,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Unity_Projects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj",
+      "projectUniqueName": "C:\\Users\\nrsim\\OneDrive\\DOC_FACUL\\UnityProjects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj",
       "projectName": "TTT.Server",
-      "projectPath": "D:\\Unity_Projects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj",
+      "projectPath": "C:\\Users\\nrsim\\OneDrive\\DOC_FACUL\\UnityProjects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj",
       "packagesPath": "C:\\Users\\nrsim\\.nuget\\packages\\",
-      "outputPath": "D:\\Unity_Projects\\TTT\\TTT\\TTT.Server\\TTT.Server\\obj\\",
+      "outputPath": "C:\\Users\\nrsim\\OneDrive\\DOC_FACUL\\UnityProjects\\TTT\\TTT\\TTT.Server\\TTT.Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nrsim\\AppData\\Roaming\\NuGet\\NuGet.Config",

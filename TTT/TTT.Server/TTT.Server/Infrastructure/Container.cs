@@ -1,10 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using TTT.Server.Data;
 using TTT.Server.Extensions;
 using TTT.Server.NetworkShared.Registries;
 
@@ -27,6 +24,7 @@ namespace TTT.Server.Infrastructure
             services.AddSingleton<NetworkServer>();
             services.AddSingleton<PacketRegistry>();
             services.AddSingleton<HandlerRegistry>();
+            services.AddSingleton<IUserRepository, InMemoryUserRepository>();
             services.AddPacketHandlers();
 
         }
