@@ -1,4 +1,5 @@
 ﻿using LiteNetLib;
+using LiteNetLib.Utils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NetworkShared;
@@ -9,6 +10,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using TTT.Server.Game;
 using TTT.Server.NetworkShared;
 using TTT.Server.NetworkShared.Registries;
 
@@ -18,9 +20,10 @@ namespace TTT.Server
     public class NetworkServer : INetEventListener
     {
         NetManager _netManager;
-        private Dictionary<int, NetPeer> _connections;
         private readonly ILogger<NetworkServer> _logger;
         private readonly IServiceProvider _serviceProvider;
+        private UsersManager _usersManager;
+        private readonly NetDataWriter _cachedWriter = new NetDataWriter();
 
         public NetworkServer(
             ILogger<NetworkServer> logger,
@@ -32,12 +35,13 @@ namespace TTT.Server
         
         public void Start()
         {
-            _connections = new Dictionary<int, NetPeer>();
+           
             _netManager = new NetManager(this)
             {
                 DisconnectTimeout = 100000
             };
             _netManager.Start(9050);
+            _usersManager = _serviceProvider.GetService<UsersManager>();
 
             Console.WriteLine("Server listening on port 9050");
         }
@@ -80,14 +84,16 @@ namespace TTT.Server
 
         public void OnPeerConnected(NetPeer peer)
         {
-            Console.WriteLine($"Client connected to server: {peer.EndPoint}. Id: {peer.Id}");
-            _connections.Add(peer.Id, peer);
+            _logger.LogInformation($"Client connected to server: {peer.EndPoint}. Id: {peer.Id}");
+            _usersManager.AddConnection(peer);
         }
 
         public void OnPeerDisconnected(NetPeer peer, DisconnectInfo disconnectInfo)
         {
-            Console.WriteLine($"{peer.EndPoint} disconnected!");
-            _connections.Remove(peer.Id);
+            var connection = _usersManager.GetConnection(peer.Id);
+            _netManager.DisconnectPeer(peer);
+            _usersManager.Disconnect(peer.Id);
+            _logger.LogInformation($"{connection?.User?.Id} disconnected: {peer.EndPoint}");
         }
 
 
@@ -105,6 +111,15 @@ namespace TTT.Server
             //throw new NotImplementedException();
         }
 
+        public void SendClient(int peerId, INetPacket packet, DeliveryMethod method = DeliveryMethod.ReliableOrdered)
+        {
+            var peer = _usersManager.GetConnection(peerId).Peer;
+            peer.Send(WriteSerializable(packet), method);
+
+        }
+
+        
+
         public IPacketHandler ResolveHandler(PacketType packetType) 
         {
             var registry = _serviceProvider.GetRequiredService<HandlerRegistry>();
@@ -121,7 +136,10 @@ namespace TTT.Server
             return packet;
 
         }
+        private NetDataWriter WriteSerializable(INetPacket packet)
+        {
+            _;
+        }
 
-        
     }
 }
