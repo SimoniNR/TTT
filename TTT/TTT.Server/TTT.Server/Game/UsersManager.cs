@@ -1,6 +1,7 @@
 ﻿using LiteNetLib;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TTT.Server.Data;
 
 namespace TTT.Server.Game
@@ -81,6 +82,11 @@ namespace TTT.Server.Game
         public ServerConnection GetConnection(int peerId)
         {
             return _connections[peerId];
+        }
+
+        public int[] GetOtherConnectionIds(int excludedconnectionId)
+        {
+            return _connections.Keys.Where(v => v != excludedconnectionId).ToArray();
         }
     }
 }

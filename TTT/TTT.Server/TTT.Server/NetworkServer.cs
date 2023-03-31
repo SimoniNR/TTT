@@ -138,7 +138,9 @@ namespace TTT.Server
         }
         private NetDataWriter WriteSerializable(INetPacket packet)
         {
-            _;
+            _cachedWriter.Reset();
+            packet.Serialize(_cachedWriter);
+            return _cachedWriter;
         }
 
     }
