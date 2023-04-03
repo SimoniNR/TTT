@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TTT.Server.Data;
 
-namespace TTT.Server.Game
+namespace TTT.Server.Games
 {
     public class UsersManager
     {
@@ -31,7 +31,7 @@ namespace TTT.Server.Game
         {
             var dbUser = _userRespository.get(username);
 
-            if (dbUser == null) 
+            if (dbUser != null) 
             {
                 if (dbUser.Password != password)
                 {
@@ -52,6 +52,7 @@ namespace TTT.Server.Game
                 _userRespository.Add(newUser);
                 dbUser = newUser;
             }
+            
             if(_connections.ContainsKey(connectionID)) 
             { 
                 dbUser.IsOnline = true;

@@ -2,10 +2,8 @@
 using NetworkShared;
 using NetworkShared.Attributes;
 using NetworkShared.Packets.ClientServer;
-using System;
-using TTT.Server.Game;
-using TTT.Server.NetworkShared;
-using TTT.Server.NetworkShared.Packets.ClientServer.ServerClient;
+using NetworkShared.Packets.ServerClient;
+using TTT.Server.Games;
 
 namespace TTT.Server.PacketHandlers
 {
@@ -38,6 +36,9 @@ namespace TTT.Server.PacketHandlers
             var loginSuccess = _usersManager.LoginOrRegister(connectionId, msg.Username, msg.Password);
 
             INetPacket rmsg;
+
+            //if sucess, send back Net_OAuth message#/ else, send back Net_OAuthFail message
+
             if (loginSuccess)
             {
                 rmsg = new Net_OnAuth();
@@ -49,13 +50,12 @@ namespace TTT.Server.PacketHandlers
 
             _server.SendClient(connectionId, rmsg);
 
-            //if sucess, send back Net_OAuth message#
+           
             if (loginSuccess)
             {
                 notifyOtherPlayer(connectionId);
             }
 
-            //else, send back Net_OAuthFail message
         }
 
         private void notifyOtherPlayer(int excludedconnectionId)

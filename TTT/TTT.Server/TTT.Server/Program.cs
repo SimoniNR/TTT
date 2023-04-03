@@ -3,9 +3,6 @@ using System.Threading;
 using TTT.Server;
 using TTT.Server.Infrastructure;
 
-//var server = new NetworkServer();
-//server.Start(); 
-
 var serviceProvider = Container.Configure();
 var _server = serviceProvider.GetRequiredService<NetworkServer>();
 _server.Start();

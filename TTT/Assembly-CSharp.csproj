@@ -60,15 +60,24 @@
     <Compile Include="Assets\Lib\LeanTween\Framework\LTDescr.cs" />
     <Compile Include="Assets\Lib\LeanTween\Framework\LeanTweenExt.cs" />
     <Compile Include="Assets\Lib\LeanTween\Framework\LTSeq.cs" />
+    <Compile Include="Assets\Scripts\NetworkShared\Packets\ClientServer\ServerClient\Net_OnAuth.cs" />
+    <Compile Include="Assets\Scripts\PacketHnadlers\OnAuthHandler.cs" />
     <Compile Include="Assets\Scripts\NetworkShared\Packets\ClientServer\Net_AuthRequest.cs" />
+    <Compile Include="Assets\Scripts\PacketHnadlers\OnAuthFailHandler.cs" />
+    <Compile Include="Assets\Scripts\NetworkShared\Registries\PacketRegistry.cs" />
     <Compile Include="Assets\Lib\LeanTween\Framework\LTDescrOptional.cs" />
+    <Compile Include="Assets\Scripts\NetworkShared\Packets\ClientServer\ServerClient\Net_OnServerStatus.cs" />
     <Compile Include="Assets\Scripts\UI\Tweener.cs" />
+    <Compile Include="Assets\Scripts\NetworkShared\IPacketHandler.cs" />
     <Compile Include="Assets\Scripts\NetworkShared\PacketType.cs" />
     <Compile Include="Assets\Lib\LeanTween\Framework\LeanAudio.cs" />
+    <Compile Include="Assets\Scripts\NetworkShared\Packets\ClientServer\ServerClient\Net_OnAuthFail.cs" />
     <Compile Include="Assets\Lib\LeanTween\Framework\LeanSmooth.cs" />
+    <Compile Include="Assets\Scripts\NetworkShared\Attributes\HandlerRegisterAttribute.cs" />
     <Compile Include="Assets\Lib\LeanTween\Framework\LeanTest.cs" />
     <Compile Include="Assets\Scripts\LoginUI.cs" />
     <Compile Include="Assets\Scripts\NetworkClient.cs" />
+    <Compile Include="Assets\Scripts\NetworkShared\Registries\HandlerRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -1,12 +1,6 @@
 ﻿using LiteNetLib.Utils;
-using NetworkShared;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TTT.Server.NetworkShared.Packets.ClientServer.ServerClient
+namespace NetworkShared.Packets.ServerClient
 {
     public struct Net_OnAuth : INetPacket
     {

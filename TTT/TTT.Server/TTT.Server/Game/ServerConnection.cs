@@ -2,7 +2,7 @@
 using System;
 using TTT.Server.Data;
 
-namespace TTT.Server.Game
+namespace TTT.Server.Games
 {
     public class ServerConnection
     {

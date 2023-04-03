@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nrsim\\OneDrive\\DOC_FACUL\\UnityProjects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj": {}
+    "D:\\Unity_Projects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nrsim\\OneDrive\\DOC_FACUL\\UnityProjects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj": {
+    "D:\\Unity_Projects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nrsim\\OneDrive\\DOC_FACUL\\UnityProjects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj",
+        "projectUniqueName": "D:\\Unity_Projects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj",
         "projectName": "TTT.Server",
-        "projectPath": "C:\\Users\\nrsim\\OneDrive\\DOC_FACUL\\UnityProjects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj",
+        "projectPath": "D:\\Unity_Projects\\TTT\\TTT\\TTT.Server\\TTT.Server\\TTT.Server.csproj",
         "packagesPath": "C:\\Users\\nrsim\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nrsim\\OneDrive\\DOC_FACUL\\UnityProjects\\TTT\\TTT\\TTT.Server\\TTT.Server\\obj\\",
+        "outputPath": "D:\\Unity_Projects\\TTT\\TTT\\TTT.Server\\TTT.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nrsim\\AppData\\Roaming\\NuGet\\NuGet.Config",

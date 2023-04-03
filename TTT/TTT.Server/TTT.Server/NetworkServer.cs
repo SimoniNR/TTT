@@ -3,16 +3,11 @@ using LiteNetLib.Utils;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using NetworkShared;
+using NetworkShared.Registries;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using TTT.Server.Game;
-using TTT.Server.NetworkShared;
-using TTT.Server.NetworkShared.Registries;
+using TTT.Server.Games;
 
 namespace TTT.Server
 {
@@ -30,7 +25,7 @@ namespace TTT.Server
             IServiceProvider provider)
         {
            _logger = logger;
-            _serviceProvider = provider;
+           _serviceProvider = provider;
         }
         
         public void Start()
@@ -40,8 +35,9 @@ namespace TTT.Server
             {
                 DisconnectTimeout = 100000
             };
+            
             _netManager.Start(9050);
-            _usersManager = _serviceProvider.GetService<UsersManager>();
+            _usersManager = _serviceProvider.GetRequiredService<UsersManager>();
 
             Console.WriteLine("Server listening on port 9050");
         }
@@ -63,19 +59,19 @@ namespace TTT.Server
             using (var scope = _serviceProvider.CreateScope())
             {
                try
-                {
-                    var packetType = (PacketType)reader.GetByte();
-                    var packet = ResolvePacket(packetType, reader);
-                    var handler = ResolveHandler(packetType);
+               {
+                   var packetType = (PacketType)reader.GetByte();
+                   var packet = ResolvePacket(packetType, reader);
+                   var handler = ResolveHandler(packetType);
 
-                    handler.Handle(packet, peer.Id);
+                   handler.Handle(packet, peer.Id);
 
-                    reader.Recycle();
-                }
-                catch (Exception ex) 
-                {
-                    _logger.LogError(ex, "Error processing message of type xx");
-                }
+                   reader.Recycle();
+               }
+               catch (Exception ex) 
+               {
+                   _logger.LogError(ex, "Error processing message of type xx");
+               }
 
             }
             

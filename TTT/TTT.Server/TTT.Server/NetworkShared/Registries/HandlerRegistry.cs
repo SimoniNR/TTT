@@ -1,29 +1,26 @@
-﻿using NetworkShared;
-using NetworkShared.Attributes;
+﻿using NetworkShared.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace TTT.Server.NetworkShared.Registries
+namespace NetworkShared.Registries
 {
     public class HandlerRegistry
     {
         private Dictionary<PacketType, Type> _handlers = new Dictionary<PacketType, Type>();
 
-        public Dictionary<PacketType, Type> Handlers 
-        { 
-            get 
-            { 
-                if(_handlers.Count == 0)
+        public Dictionary<PacketType, Type> Handlers
+        {
+            get
+            {
+                if (_handlers.Count == 0)
                 {
                     Initialize();
                 }
 
-                return _handlers; 
-            } 
+                return _handlers;
+            }
         }
 
         private void Initialize()
