@@ -1,11 +1,11 @@
 using NetworkShared.Packets.ClientServer;
-using NetworkShared.Packets.ClientServer.ServerClient;
+using NetworkShared.Packets.ServerClient;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
-using TTT.PacketHnadlers;
+using TTT.PacketHandlers;
 using UnityEngine;
 using UnityEngine.UI;
 

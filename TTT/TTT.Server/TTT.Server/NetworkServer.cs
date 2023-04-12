@@ -61,8 +61,8 @@ namespace TTT.Server
                try
                {
                    var packetType = (PacketType)reader.GetByte();
-                   var packet = ResolvePacket(packetType, reader);
-                   var handler = ResolveHandler(packetType);
+                    var packet = ResolvePacket(packetType, reader);
+                    var handler = ResolveHandler(packetType);
 
                    handler.Handle(packet, peer.Id);
 

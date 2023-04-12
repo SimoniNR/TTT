@@ -1,4 +1,5 @@
 ﻿using LiteNetLib;
+using NetworkShared.Packets.ServerClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,20 @@ namespace TTT.Server.Games
         {
             _connections = new Dictionary<int, ServerConnection>();
             _userRespository = userRespository;
+        }
+
+        public PlayerNetDto[] GetTopPlayers()
+        {
+            return _userRespository.GetQuery()
+                .OrderByDescending(x => x.Score)
+                .Select(u => new PlayerNetDto
+                {
+                    Username = u.Id,
+                    Score = u.Score,
+                    IsOnline = u.IsOnline,
+                })
+                .Take(9)
+                .ToArray();
         }
 
         public void AddConnection(NetPeer peer)

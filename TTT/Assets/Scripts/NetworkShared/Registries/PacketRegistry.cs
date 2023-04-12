@@ -1,10 +1,6 @@
-﻿using NetworkShared;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NetworkShared.Registries
 {
@@ -12,17 +8,17 @@ namespace NetworkShared.Registries
     {
         private Dictionary<PacketType, Type> _packetTypes = new Dictionary<PacketType, Type>();
 
-        public Dictionary<PacketType, Type> PacketTypes 
-        { 
-            get 
+        public Dictionary<PacketType, Type> PacketTypes
+        {
+            get
             {
-               if (_packetTypes.Count == 0)
+                if (_packetTypes.Count == 0)
                 {
                     Initialize();
                 }
-               
+
                 return _packetTypes;
-            } 
+            }
         }
         private void Initialize()
         {
@@ -31,9 +27,9 @@ namespace NetworkShared.Registries
                 .SelectMany(s => s.GetTypes())
                 .Where(p => packetType.IsAssignableFrom(p) && !p.IsInterface);
 
-            foreach (var packet in packets) 
+            foreach (var packet in packets)
             {
-               var instance = (INetPacket)Activator.CreateInstance(packet);
+                var instance = (INetPacket)Activator.CreateInstance(packet);
                 _packetTypes.Add(instance.Type, packet);
             }
         }
