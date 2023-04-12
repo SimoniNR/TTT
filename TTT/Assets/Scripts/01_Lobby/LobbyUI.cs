@@ -1,5 +1,6 @@
 ﻿using NetworkShared.Packets.ClientServer;
 using NetworkShared.Packets.ServerClient;
+using TMPro;
 using TTT.PacketHandlers;
 using UnityEngine;
 
@@ -9,12 +10,14 @@ namespace TTT.Lobby
     {
         [SerializeField] GameObject _playerRowPrefab;
 
+        private TextMeshProUGUI _playersOnlineLabel;
         private Transform _topPlayersContainer;
 
         
         private void Start()
         {
             _topPlayersContainer = transform.Find("topPlayersContainer");
+            _playersOnlineLabel = transform.Find("playersOnlineLbl").GetComponent<TextMeshProUGUI>();
 
             OnServerStatusRequestHandler.OnServerStatus += RefreshUI;
             RequestServerStatus();
@@ -31,6 +34,8 @@ namespace TTT.Lobby
             {
                 DestroyImmediate(_topPlayersContainer.GetChild(0).gameObject);
             }
+
+            _playersOnlineLabel.text = $"{msg.PlayersCount} players online";
 
             for (int i = 0; i < msg.TopPlayers.Length; i++)
             {

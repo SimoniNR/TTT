@@ -20,14 +20,14 @@ namespace TTT.Server.Data
                },
                new User
                {
-                  Id = "doido2",
+                  Id = "mtodoido2",
                   Password = "eee",
                   IsOnline = true,
                   Score = 35
                },
                new User
                {
-                  Id = "doido3",
+                  Id = "crazyguy3",
                   Password = "eee",
                   IsOnline = true,
                   Score = 21
